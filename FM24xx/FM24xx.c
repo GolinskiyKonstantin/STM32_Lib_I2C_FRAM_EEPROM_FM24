@@ -30,9 +30,9 @@ void FM24xx_erase_chip( void ){
 		
 		for( uint32_t i = 0; i < FM24XX_MAX_MEM_ADDRESS; i++){
 			#if defined(FM2401) || defined(FM2402)
-				HAL_I2C_Mem_Write( &FM24XX_I2C,  FM24XX_I2C_ADDR, 0, I2C_MEMADD_SIZE_8BIT, &data, i, HAL_MAX_DELAY );
+				HAL_I2C_Mem_Write( &FM24XX_I2C,  FM24XX_I2C_ADDR, i, I2C_MEMADD_SIZE_8BIT, &data, 1, HAL_MAX_DELAY );
 			#else
-				HAL_I2C_Mem_Write( &FM24XX_I2C,  FM24XX_I2C_ADDR, 0, I2C_MEMADD_SIZE_16BIT, &data, i, HAL_MAX_DELAY );
+				HAL_I2C_Mem_Write( &FM24XX_I2C,  FM24XX_I2C_ADDR, i, I2C_MEMADD_SIZE_16BIT, &data, 1, HAL_MAX_DELAY );
 			#endif
 		}
 		
